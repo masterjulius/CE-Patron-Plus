@@ -5,7 +5,7 @@ class Home extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this->load->library( array('user_security', 'page_actions') );
+		$this->load->library( array('user_security', 'page_actions', 'encryption') );
 		$this->load->helper( array( 'url', 'html', 'form' ) );
 	}
 

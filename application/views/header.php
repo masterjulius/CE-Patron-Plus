@@ -33,9 +33,5 @@ $materialize_URL = base_url( '/third_party/materialize' );
 	echo meta($meta);
 ?>
 
-	<script src="<?php echo $materialize_URL; ?>/js/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="<?php echo $materialize_URL; ?>/js/materialize.min.js" type="text/javascript"></script>
-    <script src="<?php echo $materialize_URL; ?>/js/main.js" type="text/javascript"></script>
-
 </head>
 <body class="<?php echo $this->page_actions->page_body_class(); ?>">
