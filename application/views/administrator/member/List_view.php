@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<td><?= $value->member_landline; ?></td>
 					<td><?= $value->member_email_address; ?></td>
 					<td><?= date( "F d, Y g:i:s A", strtotime( $value->member_date_registered ) ); ?></td>
-					<td><a href="<?= site_url( $this->uri->slash_rsegment(1) . $this->uri->slash_rsegment(2) . 'view/' . $member_ID ); ?>">View</a></td>
+					<td><a href="<?= site_url( $this->uri->slash_rsegment(1) . $this->uri->slash_rsegment(2) . 'view/' . $member_ID ); ?>">View</a> | <a href="<?= site_url( $this->uri->slash_rsegment(1) . $this->uri->slash_rsegment(2) . 'edit/' . $member_ID ); ?>" class="teal-text">Edit</a></td>
 				</tr>
 		<?php endforeach; ?>		
 			</tbody>

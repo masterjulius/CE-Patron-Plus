@@ -50,17 +50,46 @@ class Administrator extends CI_Controller {
 
 				// Call new form
 				$data['page_title'] = "New Member &mdash; " . $this->__application_name;
+				$data['materialize_custom_JS'] = true;
 				$this->load->view('header', $data);
 				$this->load->view('administrator/member/Entry_view');
 				$this->load->view('footer');
 
 			} else if ($action === 'edit') {
 
-				// Call edit form
-				$data['page_title'] = "Edit Member &mdash; " . $this->__application_name;
-				$this->load->view('header', $data);
-				$this->load->view('administrator/member/Entry_view');
-				$this->load->view('footer');
+				if ( is_numeric($paramTwo) ) {
+					// Call edit form
+					$data['page_title'] = "Edit Member &mdash; " . $this->__application_name;
+					$data['materialize_custom_JS'] = true;
+					$data['data_list'] = $this->members_mdl->get_datas_by_id($paramTwo);
+					$this->load->view('header', $data);
+					$this->load->view('administrator/member/Edit_view');
+					$this->load->view('footer');
+				}
+
+			} else if ($action === 'view') {
+
+				if ( is_numeric($paramTwo) ) {
+					// View section
+					$data['page_title'] = "Profile &mdash; " . $this->__application_name;
+					$data['data_list'] = $this->members_mdl->get_datas_by_id($paramTwo);
+					$this->load->view('header', $data);
+					$this->load->view('administrator/member/Profile_view');
+					$this->load->view('footer');
+				}
+
+			} else if ($action === 'treeview') {
+
+				if ( is_numeric($paramTwo) ) {
+					// Tree view section
+					$data['page_title'] = "Tree View &mdash; " . $this->__application_name;
+					$data['member_metadata'] = $this->members_mdl->get_datas_by_id($paramTwo);
+					$top_data = $this->members_mdl->get_tree_datas($paramTwo);
+					$data['data_list'] = $this->members_mdl->construct_tree($top_data);
+					$this->load->view('header', $data);
+					$this->load->view('administrator/member/Tree_view');
+					$this->load->view('footer');
+				}
 
 			} else {
 				// View all / Default

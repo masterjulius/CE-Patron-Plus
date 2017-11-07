@@ -40,6 +40,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			return $a;
 		}
 
+		public function object_to_array( $a ) {
+			// if ( is_object( $a ) ) {
+			//     foreach($a as $k => $v) {
+			//         if ( is_integer( $k ) ) {
+			//             // only need this if you want to keep the array indexes separate
+			//             // from the object notation: eg. $o->{1}
+			//             $a['index'][$k] = $this->array_to_object( $v );
+			//         } 
+			//         else {
+			//         	$a[$k] = $this->array_to_object( $v );
+			//         }
+			//     }
+
+			//     return (object) $a;
+			// }
+
+			// else maintain the type of $a
+			return $a;
+		}
+
 		// checking if array is associated
 		public function isAssoc( $arr ) {
 			return array_keys($arr) !== range(0, count($arr) - 1);

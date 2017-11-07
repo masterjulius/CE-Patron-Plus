@@ -109,10 +109,59 @@ class Members_controller extends CI_Controller {
 
 	}
 
+	// ASYNC get recruiter
+	public function get_recruiter() {
+
+		if ( $this->user_security->is_user_logged_in( 'CE_sess_' ) ) {
+
+			$parent_datas = $this->members_mdl->search_get_limited_member();
+			if ( $parent_datas != false ) {
+
+				//add the json header here
+				header("Content-Type: application/json", true);
+				echo json_encode( $parent_datas );
+				exit;
+			}
+			return false;
+
+		} else {
+			// Call Login Form
+			$this->__get_login_form();
+		}
+
+	}
+
+	// get children
+	public function get_childrens() {
+
+		if ( $this->user_security->is_user_logged_in( 'CE_sess_' ) ) {
+			
+			$parent_id = $this->input->post('parent_id');
+			if ( is_numeric($parent_id) ) {
+
+				$children_datas = $this->members_mdl->get_tree_datas( $parent_id );
+				if ( $children_datas != false ) {
+
+				//add the json header here
+				header("Content-Type: application/json", true);
+				echo json_encode( $children_datas );
+				exit;
+			}
+			return false;
+
+			}
+
+		} else {
+			// Call Login Form
+			$this->__get_login_form();
+		}
+
+	}
+
 	/**
 	 * --------------------------------------------------------------------------------------------------------------
-	 * |												Private Functions											|
-	 * --------------------------------------------------------------------------------------------------------------
+	 * |												Private Functions										  |
+	 * ------------------------------------------------------------------------------------------------------------
 	 **/
 
 	private function __is_agreement_checked( $arrayCheckboxes ) {

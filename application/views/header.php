@@ -9,7 +9,6 @@ $materialize_URL = base_url( '/third_party/materialize' );
 	<title><?php echo isset($page_title) ? $page_title : 'CE Patron Plus'; ?></title>
 
 <?php
-
 	$link_material = array(
 		'href'  => $materialize_URL . '/css/materialize.min.css',
 		'rel'   => 'stylesheet',
