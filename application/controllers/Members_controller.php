@@ -73,7 +73,7 @@ class Members_controller extends CI_Controller {
 						$tbl_business_group['business_name']		=	$this->input->post('business');
 
 						$tbl_heirarchy_group = array(); // heirarchy group
-						$tbl_heirarchy_group['h_parent_id']			=	$this->input->post('recruiter_id');
+						$tbl_heirarchy_group['h_parent_id']			=	(int) $this->input->post('recruiter_id');
 
 						if ( $member_id == null ) {
 							// pass to save new datas.

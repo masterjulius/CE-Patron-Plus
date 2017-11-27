@@ -1,9 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-if ($data_list != false):
 ?>
 <main>
-	
+<?php if ($data_list): ?>	
 	<div class="row">
 
 		<div class="col s12">
@@ -33,7 +32,7 @@ if ($data_list != false):
 						<td><?= $value->member_landline; ?></td>
 						<td><?= $value->member_email_address; ?></td>
 						<td><?= date( "F d, Y g:i:s A", strtotime( $value->member_date_registered ) ); ?></td>
-						<td><a href="<?= site_url( $this->uri->slash_rsegment(1) . $this->uri->slash_rsegment(2) . 'view/' . $member_ID ); ?>">View</a> | <a href="<?= site_url( $this->uri->slash_rsegment(1) . $this->uri->slash_rsegment(2) . 'edit/' . $member_ID ); ?>" class="teal-text">Edit</a></td>
+						<td><a href="<?= site_url( $this->uri->slash_rsegment(1) . $this->uri->slash_rsegment(2) . 'viewdeleted/' . $member_ID ); ?>">View</a> | <a href="<?= site_url( $this->uri->slash_rsegment(1) . $this->uri->slash_rsegment(2) . 'restore/' . $member_ID ); ?>" class="teal-text">Restore</a></td>
 					</tr>
 			<?php endforeach; ?>		
 				</tbody>
@@ -43,6 +42,5 @@ if ($data_list != false):
 		</div>	
 
 	</div>
-
-</main>
 <?php endif; ?>
+</main>

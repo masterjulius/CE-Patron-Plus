@@ -5,19 +5,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<div class="row">
 <?php
-	if ( $data_list != false ):
+	if ( $data_list):
 
 	$member_id = $this->uri->segment(4);
 	$controller_action = isset($entry_action) ? $entry_action : $this->uri->segment(3);
 	$segment_action = $controller_action == 'new' ? 'edit/' : 'edit/' . $this->uri->slash_rsegment(4);
 	$target_url = site_url( $this->uri->slash_rsegment(1). $this->uri->slash_rsegment(2) . $segment_action );
-	echo form_open( '/members_controller/save_member/' . $member_id . '/', '', array('target_url'=>$target_url,'recruiter_id'=>$data_list->h_parent_id) );
+	echo form_open( '/members_controller/save_member/' . $member_id . '/', array('class'=>'col s12'), array('target_url'=>$target_url,'recruiter_id'=>$data_list->h_parent_id) );
+
+		$parent_name = $parent_metadata->member_first_name . ' ' . $parent_metadata->member_middle_name[0] . ' ' . $parent_metadata->member_last_name;
 ?>
 
 		<!-- Recruiter Informations starts here. -->
 		<div class="row">
 			<div class="input-field col s12">
-				<input id="recruiter" name="recruiter" type="text" value="<?php echo set_value('recruiter'); ?>" class="autocomplete" autofocus="autofocus">
+				<input id="recruiter" name="recruiter" type="text" value="<?php echo $parent_name; ?>" class="autocomplete" autofocus="autofocus">
 				<label for="recruiter">Recruiter</label>
 			</div>
 		</div>

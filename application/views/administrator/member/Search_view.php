@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 if ($data_list != false):
 ?>
+
 <main>
 	
 	<div class="row">
@@ -45,4 +46,5 @@ if ($data_list != false):
 	</div>
 
 </main>
+
 <?php endif; ?>

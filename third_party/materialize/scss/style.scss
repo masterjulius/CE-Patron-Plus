@@ -9,3 +9,55 @@
 	height: 100vh;
 	background-color: #e8f5e9;
 }
+
+.net-register .modal {
+	height: 100% !important;
+	width: 100% !important;
+	background-color: #009688;
+	color: #ffffff;
+}
+.net-topnav {
+	ul li a {
+		color: #424242;
+	}
+	.nav-wrapper {
+		ul a {
+			i {
+				font-size: 20px;
+			}
+			&.btn {
+				i {
+					display: inline-block;
+					margin-top: -15px;
+				}
+				background-color: #03B3B2 !important;
+			}
+		}
+		background-color: #ffffff !important;
+	}
+}
+.net-sidenav #slide-out {
+	background-color: #424242;
+	li {
+		a {
+			color: #ffffff;
+		}
+		i {
+			color: #ffffff;
+			margin: 0 !important;
+		}
+	}
+	.net-menu .net-navlogo img {
+		padding: 25px !important;
+	}
+}
+
+header, main, footer {
+	padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+	header, main, footer {
+		padding-left: 0;
+	}
+}

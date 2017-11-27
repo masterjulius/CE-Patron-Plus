@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	$controller_action = isset($entry_action) ? $entry_action : $this->uri->segment(3);
 	$segment_action = $controller_action == 'new' ? 'edit/' : 'edit/' . $this->uri->slash_rsegment(4);
 	$target_url = site_url( $this->uri->slash_rsegment(1). $this->uri->slash_rsegment(2) . $segment_action );
-	echo form_open( '/members_controller/save_member/', '', array('target_url'=>$target_url,'recruiter_id'=>0) );
+	echo form_open( '/members_controller/save_member/', array('class'=>'col s12'), array('target_url'=>$target_url,'recruiter_id'=>0) );
 ?>
 
 		<!-- Recruiter Informations starts here. -->
